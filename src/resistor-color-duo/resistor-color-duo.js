@@ -12,10 +12,12 @@ const COLORS = [
 ];
 
 export const decodedValue = (colors) => {
+  const firstColor = colors[0];
+  const secondColor = colors[1];
   const colorLookup = COLORS.reduce((acc, cur, index) => {
-    acc[cur] = index;
+    acc[cur] = index.toString();
     return acc;
   }, {});
 
-  return +`${colorLookup[colors[0]]}${colorLookup[colors[1]]}`;
+  return Number(colorLookup[firstColor] + colorLookup[secondColor]);
 };
