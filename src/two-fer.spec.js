@@ -1,6 +1,6 @@
 import { twoFer } from "./two-fer";
 
-xdescribe("twoFer()", () => {
+describe("twoFer()", () => {
   test("no name given", () => {
     expect(twoFer()).toEqual("One for you, one for me.");
   });
