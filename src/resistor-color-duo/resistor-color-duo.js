@@ -15,5 +15,5 @@ export const decodedValue = (colors) => {
   const firstIndex = COLORS.indexOf(colors[0]);
   const secondIndex = COLORS.indexOf(colors[1]);
 
-  return +`${firstIndex}${secondIndex}`;
+  return firstIndex * 10 + secondIndex;
 };
