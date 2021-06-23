@@ -15,6 +15,33 @@
 //   return ans;
 // };
 
+// const roman = {
+//   M: 1000,
+//   CM: 900,
+//   D: 500,
+//   CD: 400,
+//   C: 100,
+//   XC: 90,
+//   L: 50,
+//   XL: 40,
+//   X: 10,
+//   IX: 9,
+//   V: 5,
+//   IV: 4,
+//   I: 1,
+// };
+
+// export const toRoman = (num) => {
+//   if (!num) return 0;
+//   let result = "";
+//   for (let i of Object.keys(roman)) {
+//     let c = Math.floor(num / roman[i]);
+//     num -= c * roman[i];
+//     result += i.repeat(c);
+//   }
+//   return result;
+// };
+
 export const toRoman = (value) => {
   let result = "";
   let numbers = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
