@@ -73,3 +73,33 @@ export const toRoman = (value) => {
 
   return result;
 };
+
+// Roman to decimal
+
+export const romanToDecimal = (str) => {
+  const mapRoman = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let result = 0;
+  for (let index = 0; index < str.length; index++) {
+    const element = mapRoman[str[index]];
+    const nextElement = mapRoman[str[index + 1]];
+
+    if (nextElement > element) {
+      result += nextElement - element;
+      index++;
+      continue;
+    }
+
+    result += element;
+  }
+
+  return result;
+};

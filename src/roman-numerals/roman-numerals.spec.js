@@ -1,4 +1,4 @@
-import { toRoman } from "./roman-numerals";
+import { toRoman, romanToDecimal } from "./roman-numerals";
 
 describe("toRoman()", () => {
   test("converts 1", () => expect(toRoman(1)).toEqual("I"));
@@ -20,4 +20,10 @@ describe("toRoman()", () => {
   test("converts 911", () => expect(toRoman(911)).toEqual("CMXI"));
   test("converts 1024", () => expect(toRoman(1024)).toEqual("MXXIV"));
   test("converts 3000", () => expect(toRoman(3000)).toEqual("MMM"));
+});
+
+describe("romanToDecimal()", () => {
+  test("converts DLXXV", () => expect(romanToDecimal("DLXXV")).toEqual(575));
+  test("converts CMXI", () => expect(romanToDecimal("CMXI")).toEqual(911));
+  test("converts MMM", () => expect(romanToDecimal("MMM")).toEqual(3000));
 });
