@@ -31,48 +31,64 @@
 //   I: 1,
 // };
 
-// export const toRoman = (num) => {
-//   if (!num) return 0;
-//   let result = "";
-//   for (let i of Object.keys(roman)) {
-//     let c = Math.floor(num / roman[i]);
-//     num -= c * roman[i];
-//     result += i.repeat(c);
-//   }
-//   return result;
-// };
+const roman = new Map();
+roman.set("M", 1000);
+roman.set("CM", 900);
+roman.set("D", 500);
+roman.set("CD", 400);
+roman.set("C", 100);
+roman.set("XC", 90);
+roman.set("L", 50);
+roman.set("XL", 40);
+roman.set("X", 10);
+roman.set("IX", 9);
+roman.set("V", 5);
+roman.set("IV", 4);
+roman.set("I", 1);
 
-export const toRoman = (value) => {
+export const toRoman = (num) => {
+  if (!num) return 0;
   let result = "";
-  let numbers = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-  let sym = [
-    "I",
-    "IV",
-    "V",
-    "IX",
-    "X",
-    "XL",
-    "L",
-    "XC",
-    "C",
-    "CD",
-    "D",
-    "CM",
-    "M",
-  ];
 
-  let index = sym.length - 1;
-  while (value > 0) {
-    let div = Math.floor(value / numbers[index]);
-    value = value % numbers[index];
-    while (div--) {
-      result = result + sym[index];
-    }
-    index--;
-  }
-
+  roman.forEach((value, key) => {
+    const div = Math.floor(num / value);
+    num -= div * value;
+    result += key.repeat(div);
+  });
   return result;
 };
+
+// export const toRoman = (value) => {
+//   let result = "";
+//   let numbers = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+//   let sym = [
+//     "I",
+//     "IV",
+//     "V",
+//     "IX",
+//     "X",
+//     "XL",
+//     "L",
+//     "XC",
+//     "C",
+//     "CD",
+//     "D",
+//     "CM",
+//     "M",
+//   ];
+
+//   let index = sym.length - 1;
+//   while (value > 0) {
+//     let div = Math.floor(value / numbers[index]);
+//     value = value % numbers[index];
+//     while (div--) {
+//       result = result + sym[index];
+//     }
+//     index--;
+//   }
+
+//   return result;
+// };
 
 // Roman to decimal
 
