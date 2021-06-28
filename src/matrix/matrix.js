@@ -7,7 +7,7 @@ export class Matrix {
       .split("\n")
       .map((rowString) => rowString.split(" ").map(Number));
 
-    const columns = rows[0].map((_, col) => rows.map((row) => row[col]));
+    const columns = rows[0].map((_, index) => rows.map((row) => row[index]));
 
     this.rows = rows;
     this.columns = columns;
